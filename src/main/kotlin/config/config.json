@@ -1,0 +1,5 @@
+{
+  "correctSolvePath":  "String",
+  "incorrectSolvePath" : "String",
+  "generatorPath" : "String"
+}
