@@ -5,13 +5,7 @@ import java.io.File
 import java.nio.charset.StandardCharsets
 import java.util.concurrent.TimeUnit
 
-object IncorrectManager {
-    private const val TIME_LIMIT_MS = 1000L
-    private lateinit var path : String
-
-    fun init(correctSolvePath : String) {
-        path = correctSolvePath
-    }
+class SolveManager(val path: String, val timeLimitMS : Long) {
 
     fun run() : Result {
         val file = File(path)
@@ -22,12 +16,12 @@ object IncorrectManager {
 
         GeneratorManager.writeTo(process)
 
-        val isFinished = process.waitFor(TIME_LIMIT_MS, TimeUnit.MILLISECONDS)
+        val isFinished = process.waitFor(timeLimitMS, TimeUnit.MILLISECONDS)
         if (!isFinished) {
             process.destroyForcibly()
             return Result(
                 stdout = "",
-                stderr = "The program exceeded the time limit of $TIME_LIMIT_MS milliseconds",
+                stderr = "The program exceeded the time limit of $timeLimitMS milliseconds",
                 exitCode = -1
             )
         }

@@ -9,7 +9,7 @@ object ConfigManager {
         ignoreUnknownKeys = true
     }
 
-    private val configFile = File("config.json")
+    private val configFile = File("C:\\Users\\mailt\\programming_projects\\kotlin_projects\\StreeForge\\config.json")
 
     fun save(config : UserConfig) {
         val text = json.encodeToString(

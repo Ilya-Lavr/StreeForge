@@ -7,4 +7,6 @@ data class UserConfig(
     val correctSolvePath : String,
     val incorrectSolvePath : String,
     val generatorPath : String,
+    val timeLimit : Long,
+    val memoryLimit : Int
 )
