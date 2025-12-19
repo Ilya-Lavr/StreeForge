@@ -10,6 +10,9 @@ fun main() {
             "--init" -> Engine.initialize()
             "--start" -> Engine.run()
             "--run" -> Engine.run()
+//            "--setTL" ->
+//            "--setML" ->
+//            "--compilation" ->
             "--exit" -> return
             else -> println("Unknow command")
         }
