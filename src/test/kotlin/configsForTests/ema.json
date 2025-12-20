@@ -1,0 +1,7 @@
+{
+  "correctSolvePath": "C:\\Users\\mailt\\Desktop\\test\\CorrectEMA.exe",
+  "incorrectSolvePath": "C:\\Users\\mailt\\Desktop\\test\\IncorrectEMA.exe",
+  "generatorPath": "C:\\Users\\mailt\\Desktop\\test\\GeneratorEMA.exe",
+  "timeLimit": 1000,
+  "memoryLimit": 256
+}

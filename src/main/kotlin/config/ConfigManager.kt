@@ -3,13 +3,13 @@ package org.example.config
 import kotlinx.serialization.json.Json
 import java.io.File
 
-object ConfigManager {
+class ConfigManager(val pathToConfigFile: String) {
     private val json = Json {
         prettyPrint = true
         ignoreUnknownKeys = true
     }
 
-    private val configFile = File("C:\\Users\\mailt\\programming_projects\\kotlin_projects\\StreeForge\\config.json")
+    private val configFile = File(pathToConfigFile)
 
     fun save(config : UserConfig) {
         val text = json.encodeToString(

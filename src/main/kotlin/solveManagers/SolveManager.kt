@@ -22,7 +22,7 @@ class SolveManager(val path: String, val timeLimitMS : Long) {
             return Result(
                 stdout = "",
                 stderr = "The program exceeded the time limit of $timeLimitMS milliseconds",
-                exitCode = -1
+                exitCode = -1000
             )
         }
 
