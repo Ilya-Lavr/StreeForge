@@ -1,0 +1,7 @@
+{
+  "correctSolvePath": "C:\\Users\\mailt\\Desktop\\test\\CorrectSolve.exe",
+  "incorrectSolvePath": "C:\\Users\\mailt\\Desktop\\test\\TimeLimit.exe",
+  "generatorPath": "C:\\Users\\mailt\\Desktop\\test\\GeneratorCorrect.exe",
+  "timeLimit": 1000,
+  "memoryLimit": 256
+}

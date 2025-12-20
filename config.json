@@ -1,7 +1,7 @@
 {
-    "correctSolvePath": "C:\\Users\\mailt\\Desktop\\test\\correct.exe",
-    "incorrectSolvePath": "C:\\Users\\mailt\\Desktop\\test\\incorrect.exe",
-    "generatorPath": "C:\\Users\\mailt\\Desktop\\test\\generator.exe",
+    "correctSolvePath": "",
+    "incorrectSolvePath": "",
+    "generatorPath": "C:\\Users\\mailt\\Desktop\\test\\GeneratorEMA.exe",
     "timeLimit": 1000,
     "memoryLimit": 256
 }

@@ -2,12 +2,17 @@ package org.example.engine
 
 import org.example.checker.check
 import org.example.config.ConfigManager
+//import org.example.config.ConfigManager
 import org.example.config.UserConfig
 import org.example.generator.GeneratorManager
 import org.example.generator.printTest
 import org.example.solveManagers.SolveManager
 
 object Engine {
+
+    val configManager = ConfigManager(
+        "C:\\Users\\mailt\\programming_projects\\kotlin_projects\\StreeForge\\config.json"
+    )
 
     fun initialize() {
         println("Initialize started")
@@ -21,7 +26,7 @@ object Engine {
         val timeLimit = readlnOrNull()!!.toLong()
         println("Print memory limit in mb")
         val memoryLimit = readlnOrNull()!!.toInt()
-        ConfigManager.save(
+        configManager.save(
             UserConfig(
                 correctPath!!,
                 incorrectPath!!,
@@ -36,11 +41,16 @@ object Engine {
 
         println("--- Stress test is started ---")
 
-        val config = ConfigManager.load()
+        for (i in 0..900000) {
+            print("\r${i / 9000}%")
+        }
+        print("\r")
+
+        val config = configManager.load()
         val correctManager = SolveManager(config.correctSolvePath, config.timeLimit)
         val incorrectManager = SolveManager(config.incorrectSolvePath, config.timeLimit)
 
-        (1..500).forEach { _ ->
+        repeat(500) { _ ->
             GeneratorManager.generate(config.generatorPath)
 
             val correct = correctManager.run()
@@ -51,6 +61,11 @@ object Engine {
             }
 
             val incorrect = incorrectManager.run()
+            if (incorrect.stderr.contains("time limit")) {
+                println("Time Limit")
+                printTest()
+                return
+            }
             if (incorrect.exitCode != 0) {
                 println("Runtime Error")
                 printTest()
@@ -65,7 +80,7 @@ object Engine {
                 println("Correct output: ")
                 println(correct.stdout)
 
-                println("Incorrect output: ")
+                println("\n\n\nIncorrect output: ")
                 println(incorrect.stdout)
 
                 return
